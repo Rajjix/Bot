@@ -1,7 +1,8 @@
-from machine.states import Order
+from machine import Order
+
 
 class MessageHandler:
-    
+
     accepted_commands = [
             'order',
             'small',
@@ -46,8 +47,10 @@ class MessageHandler:
     def handle_confirm(self, msg):
         if 'no' in msg:
             self.order.cancel
+            self.order.to_started()
             return 'Order has been cancelled'
-        elif 'yes' in msg:
+        if 'yes' in msg:
             self.order.confirm()
+            self.order.to_started()
             return 'Order has been confirmed'
         return 'pick either yes or no'

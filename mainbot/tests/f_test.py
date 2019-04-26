@@ -1,5 +1,6 @@
 from mainbot.messages import MessageHandler
 
+
 def test_msg_handler():
     test = MessageHandler()
     try:
@@ -14,5 +15,6 @@ def test_msg_handler():
         print(e)
     else:
         print("Test Passed!!! \n")
+
 
 test_msg_handler()
